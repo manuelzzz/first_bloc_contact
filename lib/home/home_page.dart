@@ -17,8 +17,14 @@ class HomePage extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pushNamed('/bloc/example/');
               },
-              child: const Text('Example'),
-            )
+              child: const Text('Default example'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/bloc/example/freezed');
+              },
+              child: const Text('Freezed example'),
+            ),
           ],
         ),
       ),

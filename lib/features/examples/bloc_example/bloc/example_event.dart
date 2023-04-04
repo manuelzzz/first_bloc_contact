@@ -4,6 +4,18 @@ abstract class ExampleEvent {}
 
 class ExampleFindNameEvent extends ExampleEvent {}
 
-class AddNameEvent extends ExampleEvent {}
+class ExampleAddNameEvent extends ExampleEvent {
+  final String name;
 
-class RemoveNameEvent extends ExampleEvent {}
+  ExampleAddNameEvent({
+    required this.name,
+  });
+}
+
+class ExampleRemoveNameEvent extends ExampleEvent {
+  final String name;
+
+  ExampleRemoveNameEvent({
+    required this.name,
+  });
+}
