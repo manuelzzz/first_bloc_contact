@@ -31,6 +31,12 @@ class HomePage extends StatelessWidget {
               },
               child: const Text('Contacts list'),
             ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/contacts/cubit/list');
+              },
+              child: const Text('Contacts cubit list'),
+            ),
           ],
         ),
       ),
