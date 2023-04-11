@@ -25,6 +25,12 @@ class HomePage extends StatelessWidget {
               },
               child: const Text('Freezed example'),
             ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/contacts/list');
+              },
+              child: const Text('Contacts list'),
+            ),
           ],
         ),
       ),
