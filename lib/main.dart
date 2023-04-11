@@ -4,6 +4,8 @@ import 'package:first_bloc_contact/features/contacts/register/bloc/contact_regis
 import 'package:first_bloc_contact/features/contacts/register/contacts_register_page.dart';
 import 'package:first_bloc_contact/features/contacts/update/bloc/contact_update_bloc.dart';
 import 'package:first_bloc_contact/features/contacts/update/contacts_update_page.dart';
+import 'package:first_bloc_contact/features/contacts_cubit/list/contacts_cubit_list_page.dart';
+import 'package:first_bloc_contact/features/contacts_cubit/list/cubit/contact_list_cubit.dart';
 import 'package:first_bloc_contact/features/examples/bloc_example/bloc/example_bloc.dart';
 import 'package:first_bloc_contact/features/examples/bloc_example/bloc_example.dart';
 import 'package:first_bloc_contact/features/examples/bloc_example/bloc_freezed/example_freezed_bloc.dart';
@@ -61,7 +63,6 @@ class MyApp extends StatelessWidget {
           '/contacts/update': (context) {
             final model =
                 ModalRoute.of(context)!.settings.arguments as ContactModel;
-
             return BlocProvider(
               create: (context) => ContactUpdateBloc(
                 contactsRepository: context.read(),
@@ -70,7 +71,15 @@ class MyApp extends StatelessWidget {
                 contact: model,
               ),
             );
-          }
+          },
+          '/contacts/cubit/list': (context) {
+            return BlocProvider(
+              create: (context) {
+                return ContactListCubit(repository: context.read())..findAll();
+              },
+              child: const ContactsCubitListPage(),
+            );
+          },
         },
       ),
     );
