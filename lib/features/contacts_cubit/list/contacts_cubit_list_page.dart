@@ -13,6 +13,15 @@ class ContactsCubitListPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('List cubit'),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          await Navigator.of(context).pushNamed('/contacts/cubit/register');
+          if (context.mounted) {
+            context.read<ContactListCubit>().findAll();
+          }
+        },
+        child: const Icon(Icons.add),
+      ),
       body: RefreshIndicator(
         onRefresh: () => context.read<ContactListCubit>().findAll(),
         child: CustomScrollView(
@@ -47,6 +56,16 @@ class ContactsCubitListPage extends StatelessWidget {
                             onTap: () => context
                                 .read<ContactListCubit>()
                                 .deleteByModel(contact),
+                            onLongPress: () async {
+                              await Navigator.pushNamed(
+                                context,
+                                '/contacts/cubit/update',
+                                arguments: contact,
+                              );
+                              if (context.mounted) {
+                                context.read<ContactListCubit>().findAll();
+                              }
+                            },
                             title: Text(contact.name),
                             subtitle: Text(contact.email),
                           );

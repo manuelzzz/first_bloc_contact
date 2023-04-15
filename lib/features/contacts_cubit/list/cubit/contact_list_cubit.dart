@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:first_bloc_contact/models/contact_model.dart';
 import 'package:first_bloc_contact/repositories/contacts_repository.dart';
