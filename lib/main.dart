@@ -6,6 +6,10 @@ import 'package:first_bloc_contact/features/contacts/update/bloc/contact_update_
 import 'package:first_bloc_contact/features/contacts/update/contacts_update_page.dart';
 import 'package:first_bloc_contact/features/contacts_cubit/list/contacts_cubit_list_page.dart';
 import 'package:first_bloc_contact/features/contacts_cubit/list/cubit/contact_list_cubit.dart';
+import 'package:first_bloc_contact/features/contacts_cubit/register/contacts_cubit_register_page.dart';
+import 'package:first_bloc_contact/features/contacts_cubit/register/cubit/contact_register_cubit.dart';
+import 'package:first_bloc_contact/features/contacts_cubit/update/contact_cubit_update_page.dart';
+import 'package:first_bloc_contact/features/contacts_cubit/update/cubit/cubit/contact_update_cubit.dart';
 import 'package:first_bloc_contact/features/examples/bloc_example/bloc/example_bloc.dart';
 import 'package:first_bloc_contact/features/examples/bloc_example/bloc_example.dart';
 import 'package:first_bloc_contact/features/examples/bloc_example/bloc_freezed/example_freezed_bloc.dart';
@@ -80,6 +84,24 @@ class MyApp extends StatelessWidget {
               child: const ContactsCubitListPage(),
             );
           },
+          '/contacts/cubit/register': (_) => BlocProvider(
+                create: (context) => ContactRegisterCubit(
+                  repository: context.read(),
+                ),
+                child: const ContactsCubitRegisterPage(),
+              ),
+          '/contacts/cubit/update': (context) {
+            final model =
+                ModalRoute.of(context)!.settings.arguments as ContactModel;
+            return BlocProvider(
+              create: (context) => ContactUpdateCubit(
+                repository: context.read(),
+              ),
+              child: ContactCubitUpdatePage(
+                contact: model,
+              ),
+            );
+          }
         },
       ),
     );
