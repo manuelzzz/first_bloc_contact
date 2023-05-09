@@ -57,7 +57,7 @@ class ContactUpdateBloc extends Bloc<ContactUpdateEvent, ContactUpdateState> {
     } on Exception catch (e, s) {
       log('Erro ao deletar o contato', error: e, stackTrace: s);
       emit(const ContactUpdateState.error(
-        message: 'Erro ao atualizar o contato',
+        message: 'Erro ao deletar o contato',
       ));
     }
   }
