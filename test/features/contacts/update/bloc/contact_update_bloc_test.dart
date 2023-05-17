@@ -30,7 +30,8 @@ void main() {
       email: model.email,
     )),
     setUp: () {
-      when(() => repository.update(model)).thenAnswer((_) async => model);
+      when(() => repository.update(model))  
+          .thenAnswer((_) async => model.toMap());
     },
     expect: () => [
       const ContactUpdateState.loading(),

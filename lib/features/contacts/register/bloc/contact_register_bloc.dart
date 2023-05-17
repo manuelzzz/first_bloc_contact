@@ -20,14 +20,12 @@ class ContactRegisterBloc
     on<_Save>(_save);
   }
 
-  FutureOr<void> _save(
+  Future<void> _save(
     _Save event,
     Emitter<ContactRegisterState> emit,
   ) async {
     try {
       emit(const ContactRegisterState.loading());
-
-      Future.delayed(const Duration(seconds: 2));
 
       final contactModel = ContactModel(
         name: event.name,

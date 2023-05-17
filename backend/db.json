@@ -1,9 +1,1 @@
-{
-  "contacts": [
-    {
-      "id": "e3dd4920-d4b6-11ed-98bd-174478b4ddfd",
-      "name": "teste",
-      "email": "teste@gmail.com"
-    }
-  ]
-}
+{"contacts":[{"id":"8cfe7410-db0c-11ed-ad0e-8b0fa8c22264","name":"testando 123","email":"teste@gmail.com"}]}
